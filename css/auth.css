@@ -1,0 +1,140 @@
+/* Auth Pages Styles */
+.auth-container {
+  display: flex;
+  min-height: 100vh;
+  background-color: var(--gray-100);
+}
+
+.auth-card {
+  flex: 1;
+  max-width: 500px;
+  padding: 2rem;
+  background-color: white;
+  box-shadow: var(--box-shadow);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.auth-header {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.auth-header h2 {
+  margin-top: 1.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.auth-header p {
+  color: var(--gray-600);
+}
+
+.auth-form {
+  width: 100%;
+}
+
+.form-options {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1.5rem;
+}
+
+.remember-me,
+.terms {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.remember-me label,
+.terms label {
+  margin-bottom: 0;
+  font-weight: normal;
+}
+
+.forgot-password {
+  color: var(--accent-color);
+  font-size: 0.875rem;
+}
+
+.social-login {
+  margin-top: 2rem;
+  text-align: center;
+}
+
+.social-login p {
+  color: var(--gray-600);
+  margin-bottom: 1rem;
+  position: relative;
+}
+
+.social-login p::before,
+.social-login p::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  width: 30%;
+  height: 1px;
+  background-color: var(--gray-300);
+}
+
+.social-login p::before {
+  left: 0;
+}
+
+.social-login p::after {
+  right: 0;
+}
+
+.social-buttons {
+  display: flex;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+.social-buttons button {
+  flex: 1;
+}
+
+.auth-footer {
+  text-align: center;
+  margin-top: 1.5rem;
+  color: var(--gray-600);
+}
+
+.auth-footer a {
+  font-weight: 600;
+}
+
+.auth-image {
+  flex: 1;
+  display: none;
+  background-color: var(--gray-200);
+  overflow: hidden;
+}
+
+.auth-image img {
+  width: 850px;
+  height: 650px;
+  object-fit:center;
+}
+
+/* Responsive */
+@media (min-width: 992px) {
+  .auth-image {
+    display: block;
+  }
+}
+
+@media (max-width: 576px) {
+  .auth-card {
+    padding: 1.5rem;
+  }
+
+  .social-buttons {
+    flex-direction: column;
+  }
+}
+

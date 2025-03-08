@@ -1,0 +1,657 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Customers - FoodDash</title>
+    <link rel="icon" href="assets/food-dash.png" />
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/dashboard.css">
+    <link rel="stylesheet" href="css/Customer.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <div class="dashboard-container">
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <div class="logo">
+                    <div class="logo-icon">FD</div>
+                    <h1>FoodDash</h1>
+                </div>
+                <button class="sidebar-toggle" id="sidebarToggle">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </div>
+            <nav class="sidebar-nav">
+                <ul>
+                    <li>
+                        <a href="dashboard.html">
+                            <i class="fas fa-th-large"></i>
+                            <span>Dashboard</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="Orders.html">
+                            <i class="fas fa-shopping-bag"></i>
+                            <span>Orders</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="Menu.html">
+                            <i class="fas fa-utensils"></i>
+                            <span>Menu</span>
+                        </a>
+                    </li>
+                    <li class="active">
+                        <a href="Customer.html">
+                            <i class="fas fa-users"></i>
+                            <span>Customers</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="Analytics.html">
+                            <i class="fas fa-chart-bar"></i>
+                            <span>Analytics</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="Setting.html">
+                            <i class="fas fa-cog"></i>
+                            <span>Settings</span>
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+            <div class="sidebar-footer">
+                <a href="#" id="logoutBtn">
+                    <i class="fas fa-sign-out-alt"></i>
+                    <span>Logout</span>
+                </a>
+            </div>
+        </aside>
+
+        <main class="main-content">
+            <header class="dashboard-header">
+                <h1>Customer Management</h1>
+                <div class="user-menu">
+                    <span class="date" id="currentDate">February 21, 2023</span>
+                    <div class="user-avatar" id="userMenuToggle">
+                        <span>JD</span>
+                    </div>
+                    <div class="user-dropdown" id="userDropdown">
+                        <div class="user-info">
+                            <h4>Sumit Kumar</h4>
+                            <p>user@example.com</p>
+                        </div>
+                        <ul>
+                            <li><a href="profile.html"><i class="fas fa-user"></i> Profile</a></li>
+                            <li><a href="Setting.html"><i class="fas fa-cog"></i> Settings</a></li>
+                            <li><a href="#" id="logoutBtnDropdown"><i class="fas fa-sign-out-alt"></i> Logout</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </header>
+
+            <div class="dashboard-stats">
+                <div class="stat-card">
+                    <div class="stat-info">
+                        <h3>Total Customers</h3>
+                        <div class="stat-value">1,245</div>
+                        <div class="stat-change positive">
+                            <i class="fas fa-arrow-up"></i> 8% vs last month
+                        </div>
+                    </div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-info">
+                        <h3>New Customers</h3>
+                        <div class="stat-value">87</div>
+                        <div class="stat-change positive">
+                            <i class="fas fa-arrow-up"></i> 12% vs last month
+                        </div>
+                    </div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-info">
+                        <h3>Repeat Customers</h3>
+                        <div class="stat-value">76%</div>
+                        <div class="stat-change positive">
+                            <i class="fas fa-arrow-up"></i> 5% vs last month
+                        </div>
+                    </div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-info">
+                        <h3>Avg. Customer Value</h3>
+                        <div class="stat-value">₹245</div>
+                        <div class="stat-change negative">
+                            <i class="fas fa-arrow-down"></i> 3% vs last month
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="customer-tools">
+                <div class="search-filter-container">
+                    <div class="search-box">
+                        <i class="fas fa-search"></i>
+                        <input type="text" id="customerSearch" placeholder="Search customers...">
+                    </div>
+                    <div class="filter-box">
+                        <select id="customerFilter">
+                            <option value="all">All Customers</option>
+                            <option value="new">New Customers</option>
+                            <option value="repeat">Repeat Customers</option>
+                            <option value="vip">VIP Customers</option>
+                            <option value="inactive">Inactive Customers</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="action-buttons">
+                    <button class="btn-export">
+                        <i class="fas fa-file-export"></i> Export
+                    </button>
+                    <button class="btn-add-customer">
+                        <i class="fas fa-plus"></i> Add Customer
+                    </button>
+                </div>
+            </div>
+
+            <div class="customer-list-container">
+                <table class="customer-table">
+                    <thead>
+                        <tr>
+                            <th>
+                                <input type="checkbox" id="selectAllCustomers">
+                            </th>
+                            <th>Customer</th>
+                            <th>Email</th>
+                            <th>Phone</th>
+                            <th>Orders</th>
+                            <th>Total Spent</th>
+                            <th>Last Order</th>
+                            <th>Status</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody id="customerTableBody">
+                        <tr>
+                            <td>
+                                <input type="checkbox" class="customer-checkbox">
+                            </td>
+                            <td>
+                                <div class="customer-info">
+                                    <div class="customer-avatar">RK</div>
+                                    <div class="customer-name">Rahul Kumar</div>
+                                </div>
+                            </td>
+                            <td>rahul@example.com</td>
+                            <td>+91 9876543210</td>
+                            <td>24</td>
+                            <td>₹4,850</td>
+                            <td>2 days ago</td>
+                            <td><span class="status-badge active">Active</span></td>
+                            <td>
+                                <div class="action-menu">
+                                    <button class="action-btn">
+                                        <i class="fas fa-ellipsis-v"></i>
+                                    </button>
+                                    <div class="action-dropdown">
+                                        <a href="#" class="view-customer" data-id="1"><i class="fas fa-eye"></i> View</a>
+                                        <a href="#" class="edit-customer" data-id="1"><i class="fas fa-edit"></i> Edit</a>
+                                        <a href="#" class="delete-customer" data-id="1"><i class="fas fa-trash"></i> Delete</a>
+                                    </div>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <input type="checkbox" class="customer-checkbox">
+                            </td>
+                            <td>
+                                <div class="customer-info">
+                                    <div class="customer-avatar">PS</div>
+                                    <div class="customer-name">Priya Singh</div>
+                                </div>
+                            </td>
+                            <td>priya@example.com</td>
+                            <td>+91 9876543211</td>
+                            <td>18</td>
+                            <td>₹3,240</td>
+                            <td>5 days ago</td>
+                            <td><span class="status-badge active">Active</span></td>
+                            <td>
+                                <div class="action-menu">
+                                    <button class="action-btn">
+                                        <i class="fas fa-ellipsis-v"></i>
+                                    </button>
+                                    <div class="action-dropdown">
+                                        <a href="#" class="view-customer" data-id="2"><i class="fas fa-eye"></i> View</a>
+                                        <a href="#" class="edit-customer" data-id="2"><i class="fas fa-edit"></i> Edit</a>
+                                        <a href="#" class="delete-customer" data-id="2"><i class="fas fa-trash"></i> Delete</a>
+                                    </div>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <input type="checkbox" class="customer-checkbox">
+                            </td>
+                            <td>
+                                <div class="customer-info">
+                                    <div class="customer-avatar">AM</div>
+                                    <div class="customer-name">Amit Mehta</div>
+                                </div>
+                            </td>
+                            <td>amit@example.com</td>
+                            <td>+91 9876543212</td>
+                            <td>32</td>
+                            <td>₹6,120</td>
+                            <td>1 day ago</td>
+                            <td><span class="status-badge vip">VIP</span></td>
+                            <td>
+                                <div class="action-menu">
+                                    <button class="action-btn">
+                                        <i class="fas fa-ellipsis-v"></i>
+                                    </button>
+                                    <div class="action-dropdown">
+                                        <a href="#" class="view-customer" data-id="3"><i class="fas fa-eye"></i> View</a>
+                                        <a href="#" class="edit-customer" data-id="3"><i class="fas fa-edit"></i> Edit</a>
+                                        <a href="#" class="delete-customer" data-id="3"><i class="fas fa-trash"></i> Delete</a>
+                                    </div>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <input type="checkbox" class="customer-checkbox">
+                            </td>
+                            <td>
+                                <div class="customer-info">
+                                    <div class="customer-avatar">SG</div>
+                                    <div class="customer-name">Sneha Gupta</div>
+                                </div>
+                            </td>
+                            <td>sneha@example.com</td>
+                            <td>+91 9876543213</td>
+                            <td>8</td>
+                            <td>₹1,560</td>
+                            <td>10 days ago</td>
+                            <td><span class="status-badge inactive">Inactive</span></td>
+                            <td>
+                                <div class="action-menu">
+                                    <button class="action-btn">
+                                        <i class="fas fa-ellipsis-v"></i>
+                                    </button>
+                                    <div class="action-dropdown">
+                                        <a href="#" class="view-customer" data-id="4"><i class="fas fa-eye"></i> View</a>
+                                        <a href="#" class="edit-customer" data-id="4"><i class="fas fa-edit"></i> Edit</a>
+                                        <a href="#" class="delete-customer" data-id="4"><i class="fas fa-trash"></i> Delete</a>
+                                    </div>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <input type="checkbox" class="customer-checkbox">
+                            </td>
+                            <td>
+                                <div class="customer-info">
+                                    <div class="customer-avatar">VJ</div>
+                                    <div class="customer-name">Vikram Joshi</div>
+                                </div>
+                            </td>
+                            <td>vikram@example.com</td>
+                            <td>+91 9876543214</td>
+                            <td>15</td>
+                            <td>₹2,890</td>
+                            <td>3 days ago</td>
+                            <td><span class="status-badge active">Active</span></td>
+                            <td>
+                                <div class="action-menu">
+                                    <button class="action-btn">
+                                        <i class="fas fa-ellipsis-v"></i>
+                                    </button>
+                                    <div class="action-dropdown">
+                                        <a href="#" class="view-customer" data-id="5"><i class="fas fa-eye"></i> View</a>
+                                        <a href="#" class="edit-customer" data-id="5"><i class="fas fa-edit"></i> Edit</a>
+                                        <a href="#" class="delete-customer" data-id="5"><i class="fas fa-trash"></i> Delete</a>
+                                    </div>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <input type="checkbox" class="customer-checkbox">
+                            </td>
+                            <td>
+                                <div class="customer-info">
+                                    <div class="customer-avatar">NP</div>
+                                    <div class="customer-name">Neha Patel</div>
+                                </div>
+                            </td>
+                            <td>neha@example.com</td>
+                            <td>+91 9876543215</td>
+                            <td>21</td>
+                            <td>₹4,120</td>
+                            <td>2 days ago</td>
+                            <td><span class="status-badge active">Active</span></td>
+                            <td>
+                                <div class="action-menu">
+                                    <button class="action-btn">
+                                        <i class="fas fa-ellipsis-v"></i>
+                                    </button>
+                                    <div class="action-dropdown">
+                                        <a href="#" class="view-customer" data-id="6"><i class="fas fa-eye"></i> View</a>
+                                        <a href="#" class="edit-customer" data-id="6"><i class="fas fa-edit"></i> Edit</a>
+                                        <a href="#" class="delete-customer" data-id="6"><i class="fas fa-trash"></i> Delete</a>
+                                    </div>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <input type="checkbox" class="customer-checkbox">
+                            </td>
+                            <td>
+                                <div class="customer-info">
+                                    <div class="customer-avatar">RS</div>
+                                    <div class="customer-name">Raj Sharma</div>
+                                </div>
+                            </td>
+                            <td>raj@example.com</td>
+                            <td>+91 9876543216</td>
+                            <td>5</td>
+                            <td>₹980</td>
+                            <td>15 days ago</td>
+                            <td><span class="status-badge new">New</span></td>
+                            <td>
+                                <div class="action-menu">
+                                    <button class="action-btn">
+                                        <i class="fas fa-ellipsis-v"></i>
+                                    </button>
+                                    <div class="action-dropdown">
+                                        <a href="#" class="view-customer" data-id="7"><i class="fas fa-eye"></i> View</a>
+                                        <a href="#" class="edit-customer" data-id="7"><i class="fas fa-edit"></i> Edit</a>
+                                        <a href="#" class="delete-customer" data-id="7"><i class="fas fa-trash"></i> Delete</a>
+                                    </div>
+                                </div>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="pagination">
+                <button class="pagination-btn" disabled>
+                    <i class="fas fa-chevron-left"></i>
+                </button>
+                <button class="pagination-btn active">1</button>
+                <button class="pagination-btn">2</button>
+                <button class="pagination-btn">3</button>
+                <span class="pagination-ellipsis">...</span>
+                <button class="pagination-btn">10</button>
+                <button class="pagination-btn">
+                    <i class="fas fa-chevron-right"></i>
+                </button>
+            </div>
+        </main>
+    </div>
+
+    <!-- Customer Detail Modal -->
+    <div class="modal" id="customerDetailModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>Customer Details</h2>
+                <button class="modal-close">&times;</button>
+            </div>
+            <div class="modal-body">
+                <div class="customer-profile">
+                    <div class="profile-header">
+                        <div class="profile-avatar">AM</div>
+                        <div class="profile-info">
+                            <h3>Amit Mehta</h3>
+                            <p>amit@example.com</p>
+                            <p>+91 9876543212</p>
+                            <span class="status-badge vip">VIP</span>
+                        </div>
+                    </div>
+                    
+                    <div class="profile-tabs">
+                        <button class="tab-btn active" data-tab="overview">Overview</button>
+                        <button class="tab-btn" data-tab="orders">Orders</button>
+                        <button class="tab-btn" data-tab="address">Addresses</button>
+                        <button class="tab-btn" data-tab="notes">Notes</button>
+                    </div>
+                    
+                    <div class="profile-tab-content active" id="overview">
+                        <div class="customer-stats">
+                            <div class="stat-item">
+                                <h4>Total Orders</h4>
+                                <div class="stat-number">32</div>
+                            </div>
+                            <div class="stat-item">
+                                <h4>Total Spent</h4>
+                                <div class="stat-number">₹6,120</div>
+                            </div>
+                            <div class="stat-item">
+                                <h4>Avg. Order Value</h4>
+                                <div class="stat-number">₹191</div>
+                            </div>
+                            <div class="stat-item">
+                                <h4>First Order</h4>
+                                <div class="stat-number">Jan 15, 2023</div>
+                            </div>
+                        </div>
+                        
+                        <div class="customer-preferences">
+                            <h4>Preferences</h4>
+                            <div class="preferences-list">
+                                <div class="preference-item">
+                                    <span class="preference-label">Favorite Items:</span>
+                                    <span class="preference-value">Chicken Burger, Fries, Coke</span>
+                                </div>
+                                <div class="preference-item">
+                                    <span class="preference-label">Dietary Restrictions:</span>
+                                    <span class="preference-value">None</span>
+                                </div>
+                                <div class="preference-item">
+                                    <span class="preference-label">Preferred Payment:</span>
+                                    <span class="preference-value">Credit Card</span>
+                                </div>
+                                <div class="preference-item">
+                                    <span class="preference-label">Delivery Time:</span>
+                                    <span class="preference-value">Evening (6-8 PM)</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="profile-tab-content" id="orders">
+                        <div class="recent-orders-list">
+                            <div class="order-item">
+                                <div class="order-header">
+                                    <div class="order-id">#ORD-1234</div>
+                                    <div class="order-date">Feb 20, 2023</div>
+                                    <div class="order-status completed">Completed</div>
+                                </div>
+                                <div class="order-details">
+                                    <div class="order-items">2x Chicken Burger, 1x Fries, 2x Coke</div>
+                                    <div class="order-total">₹450</div>
+                                </div>
+                            </div>
+                            <div class="order-item">
+                                <div class="order-header">
+                                    <div class="order-id">#ORD-1210</div>
+                                    <div class="order-date">Feb 15, 2023</div>
+                                    <div class="order-status completed">Completed</div>
+                                </div>
+                                <div class="order-details">
+                                    <div class="order-items">1x Veg Pizza, 1x Garlic Bread, 1x Sprite</div>
+                                    <div class="order-total">₹380</div>
+                                </div>
+                            </div>
+                            <div class="order-item">
+                                <div class="order-header">
+                                    <div class="order-id">#ORD-1195</div>
+                                    <div class="order-date">Feb 10, 2023</div>
+                                    <div class="order-status completed">Completed</div>
+                                </div>
+                                <div class="order-details">
+                                    <div class="order-items">2x Chicken Wings, 1x Fries, 1x Coke</div>
+                                    <div class="order-total">₹320</div>
+                                </div>
+                            </div>
+                        </div>
+                        <button class="btn-view-all">View All Orders</button>
+                    </div>
+                    
+                    <div class="profile-tab-content" id="address">
+                        <div class="address-list">
+                            <div class="address-item">
+                                <div class="address-header">
+                                    <h4>Home</h4>
+                                    <span class="default-badge">Default</span>
+                                </div>
+                                <div class="address-content">
+                                    <p>123 Main Street, Apartment 4B</p>
+                                    <p>Andheri East, Mumbai 400069</p>
+                                    <p>Maharashtra, India</p>
+                                </div>
+                                <div class="address-actions">
+                                    <button class="btn-edit-address">Edit</button>
+                                    <button class="btn-delete-address" disabled>Delete</button>
+                                </div>
+                            </div>
+                            <div class="address-item">
+                                <div class="address-header">
+                                    <h4>Office</h4>
+                                </div>
+                                <div class="address-content">
+                                    <p>Tech Park, Building B, 5th Floor</p>
+                                    <p>Bandra Kurla Complex, Mumbai 400051</p>
+                                    <p>Maharashtra, India</p>
+                                </div>
+                                <div class="address-actions">
+                                    <button class="btn-edit-address">Edit</button>
+                                    <button class="btn-delete-address">Delete</button>
+                                </div>
+                            </div>
+                        </div>
+                        <button class="btn-add-address">Add New Address</button>
+                    </div>
+                    
+                    <div class="profile-tab-content" id="notes">
+                        <div class="notes-container">
+                            <div class="notes-list">
+                                <div class="note-item">
+                                    <div class="note-header">
+                                        <div class="note-author">Added by: Admin</div>
+                                        <div class="note-date">Feb 15, 2023</div>
+                                    </div>
+                                    <div class="note-content">
+                                        Customer prefers extra sauce with burgers. Always ensure to add it.
+                                    </div>
+                                </div>
+                                <div class="note-item">
+                                    <div class="note-header">
+                                        <div class="note-author">Added by: Support</div>
+                                        <div class="note-date">Jan 28, 2023</div>
+                                    </div>
+                                    <div class="note-content">
+                                        Customer reported late delivery on order #ORD-1195. Compensated with a 10% discount on next order.
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="add-note">
+                                <textarea placeholder="Add a new note..."></textarea>
+                                <button class="btn-add-note">Add Note</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button class="btn-close-modal">Close</button>
+                <button class="btn-edit-customer">Edit Customer</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Add/Edit Customer Modal -->
+    <div class="modal" id="editCustomerModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>Edit Customer</h2>
+                <button class="modal-close">&times;</button>
+            </div>
+            <div class="modal-body">
+                <form id="customerForm">
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="customerName">Full Name</label>
+                            <input type="text" id="customerName" value="Amit Mehta">
+                        </div>
+                        <div class="form-group">
+                            <label for="customerEmail">Email Address</label>
+                            <input type="email" id="customerEmail" value="amit@example.com">
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="customerPhone">Phone Number</label>
+                            <input type="tel" id="customerPhone" value="+91 9876543212">
+                        </div>
+                        <div class="form-group">
+                            <label for="customerStatus">Status</label>
+                            <select id="customerStatus">
+                                <option value="active">Active</option>
+                                <option value="inactive">Inactive</option>
+                                <option value="vip" selected>VIP</option>
+                                <option value="new">New</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="customerAddress">Default Address</label>
+                        <textarea id="customerAddress">123 Main Street, Apartment 4B, Andheri East, Mumbai 400069, Maharashtra, India</textarea>
+                    </div>
+                    <div class="form-group">
+                        <label for="customerNotes">Notes</label>
+                        <textarea id="customerNotes">Customer prefers extra sauce with burgers.</textarea>
+                    </div>
+                    <div class="form-group">
+                        <label>Preferences</label>
+                        <div class="preferences-editor">
+                            <div class="preference-row">
+                                <input type="text" placeholder="Preference name" value="Favorite Items">
+                                <input type="text" placeholder="Value" value="Chicken Burger, Fries, Coke">
+                                <button type="button" class="btn-remove-preference">
+                                    <i class="fas fa-times"></i>
+                                </button>
+                            </div>
+                            <div class="preference-row">
+                                <input type="text" placeholder="Preference name" value="Dietary Restrictions">
+                                <input type="text" placeholder="Value" value="None">
+                                <button type="button" class="btn-remove-preference">
+                                    <i class="fas fa-times"></i>
+                                </button>
+                            </div>
+                            <button type="button" class="btn-add-preference">
+                                <i class="fas fa-plus"></i> Add Preference
+                            </button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button class="btn-cancel">Cancel</button>
+                <button class="btn-save-customer">Save Changes</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/dashboard.js"></script>
+    <script src="js/Customer.js"></script>
+</body>
+</html>

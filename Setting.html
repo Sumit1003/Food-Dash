@@ -1,0 +1,518 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Settings - FoodDash</title>
+    <link rel="icon" href="assets/food-dash.png" />
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/dashboard.css">
+    <link rel="stylesheet" href="css/Setting.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <div class="dashboard-container">
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <div class="logo">
+                    <div class="logo-icon">FD</div>
+                    <h1>FoodDash</h1>
+                </div>
+                <button class="sidebar-toggle" id="sidebarToggle">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </div>
+            <nav class="sidebar-nav">
+                <ul>
+                    <li>
+                        <a href="dashboard.html">
+                            <i class="fas fa-th-large"></i>
+                            <span>Dashboard</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="Orders.html">
+                            <i class="fas fa-shopping-bag"></i>
+                            <span>Orders</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="Menu.html">
+                            <i class="fas fa-utensils"></i>
+                            <span>Menu</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="Customer.html">
+                            <i class="fas fa-users"></i>
+                            <span>Customers</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="Analytics.html">
+                            <i class="fas fa-chart-bar"></i>
+                            <span>Analytics</span>
+                        </a>
+                    </li>
+                    <li class="active">
+                        <a href="Setting.html">
+                            <i class="fas fa-cog"></i>
+                            <span>Settings</span>
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+            <div class="sidebar-footer">
+                <a href="#" id="logoutBtn">
+                    <i class="fas fa-sign-out-alt"></i>
+                    <span>Logout</span>
+                </a>
+            </div>
+        </aside>
+
+        <main class="main-content">
+            <header class="dashboard-header">
+                <h1>Settings</h1>
+                <div class="user-menu">
+                    <span class="date" id="currentDate">February 21, 2023</span>
+                    <div class="user-avatar" id="userMenuToggle">
+                        <span>JD</span>
+                    </div>
+                    <div class="user-dropdown" id="userDropdown">
+                        <div class="user-info">
+                            <h4>Sumit Kumar</h4>
+                            <p>user@example.com</p>
+                        </div>
+                        <ul>
+                            <li><a href="profile.html"><i class="fas fa-user"></i> Profile</a></li>
+                            <li><a href="Setting.html"><i class="fas fa-cog"></i> Settings</a></li>
+                            <li><a href="#" id="logoutBtnDropdown"><i class="fas fa-sign-out-alt"></i> Logout</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </header>
+
+            <div class="settings-container">
+                <div class="settings-sidebar">
+                    <ul class="settings-nav">
+                        <li class="active" data-tab="account">
+                            <i class="fas fa-user"></i> Account Settings
+                        </li>
+                        <li data-tab="restaurant">
+                            <i class="fas fa-store"></i> Restaurant Profile
+                        </li>
+                        <li data-tab="notifications">
+                            <i class="fas fa-bell"></i> Notifications
+                        </li>
+                        <li data-tab="payment">
+                            <i class="fas fa-credit-card"></i> Payment Methods
+                        </li>
+                        <li data-tab="security">
+                            <i class="fas fa-lock"></i> Security
+                        </li>
+                        <li data-tab="appearance">
+                            <i class="fas fa-paint-brush"></i> Appearance
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="settings-content">
+                    <!-- Account Settings Tab -->
+                    <div class="settings-tab active" id="account">
+                        <div class="settings-header">
+                            <h2>Account Settings</h2>
+                            <p>Manage your account information and preferences</p>
+                        </div>
+
+                        <form class="settings-form">
+                            <div class="form-group">
+                                <label for="fullName">Full Name</label>
+                                <input type="text" id="fullName" value="Sumit Kumar">
+                            </div>
+                            <div class="form-group">
+                                <label for="email">Email Address</label>
+                                <input type="email" id="email" value="user@example.com">
+                            </div>
+                            <div class="form-group">
+                                <label for="phone">Phone Number</label>
+                                <input type="tel" id="phone" value="+91 9876543210">
+                            </div>
+                            <div class="form-group">
+                                <label for="address">Address</label>
+                                <textarea id="address">123 Main Street, New Delhi, India</textarea>
+                            </div>
+                            <div class="form-group">
+                                <label for="language">Language</label>
+                                <select id="language">
+                                    <option value="en" selected>English</option>
+                                    <option value="hi">Hindi</option>
+                                    <option value="es">Spanish</option>
+                                    <option value="fr">French</option>
+                                </select>
+                            </div>
+                            <div class="form-actions">
+                                <button type="submit" class="btn-save">Save Changes</button>
+                            </div>
+                        </form>
+                    </div>
+
+                    <!-- Restaurant Profile Tab -->
+                    <div class="settings-tab" id="restaurant">
+                        <div class="settings-header">
+                            <h2>Restaurant Profile</h2>
+                            <p>Manage your restaurant information and settings</p>
+                        </div>
+
+                        <form class="settings-form">
+                            <div class="form-group">
+                                <label for="restaurantName">Restaurant Name</label>
+                                <input type="text" id="restaurantName" value="FoodDash Restaurant">
+                            </div>
+                            <div class="form-group">
+                                <label for="restaurantDesc">Description</label>
+                                <textarea id="restaurantDesc">Delicious food delivered fast to your doorstep.</textarea>
+                            </div>
+                            <div class="form-group">
+                                <label for="cuisine">Cuisine Type</label>
+                                <select id="cuisine">
+                                    <option value="indian" selected>Indian</option>
+                                    <option value="italian">Italian</option>
+                                    <option value="chinese">Chinese</option>
+                                    <option value="mexican">Mexican</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="openingHours">Opening Hours</label>
+                                <div class="hours-container">
+                                    <div class="day-hours">
+                                        <span>Monday - Friday</span>
+                                        <div class="time-inputs">
+                                            <input type="time" value="09:00"> to <input type="time" value="22:00">
+                                        </div>
+                                    </div>
+                                    <div class="day-hours">
+                                        <span>Saturday - Sunday</span>
+                                        <div class="time-inputs">
+                                            <input type="time" value="10:00"> to <input type="time" value="23:00">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label>Restaurant Logo</label>
+                                <div class="logo-upload">
+                                    <div class="current-logo">
+                                        <div class="logo-preview">FD</div>
+                                    </div>
+                                    <div class="upload-actions">
+                                        <button type="button" class="btn-upload">Upload New Logo</button>
+                                        <input type="file" id="logoUpload" hidden>
+                                        <p class="upload-hint">Recommended size: 512x512px (Max: 2MB)</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-actions">
+                                <button type="submit" class="btn-save">Save Changes</button>
+                            </div>
+                        </form>
+                    </div>
+
+                    <!-- Notifications Tab -->
+                    <div class="settings-tab" id="notifications">
+                        <div class="settings-header">
+                            <h2>Notification Settings</h2>
+                            <p>Manage how you receive notifications</p>
+                        </div>
+
+                        <div class="notification-settings">
+                            <div class="notification-group">
+                                <h3>Order Notifications</h3>
+                                <div class="notification-option">
+                                    <div class="option-info">
+                                        <h4>New Orders</h4>
+                                        <p>Get notified when a new order is placed</p>
+                                    </div>
+                                    <div class="notification-toggles">
+                                        <label class="toggle">
+                                            <input type="checkbox" checked>
+                                            <span class="toggle-slider"></span>
+                                            <span class="toggle-label">Email</span>
+                                        </label>
+                                        <label class="toggle">
+                                            <input type="checkbox" checked>
+                                            <span class="toggle-slider"></span>
+                                            <span class="toggle-label">SMS</span>
+                                        </label>
+                                        <label class="toggle">
+                                            <input type="checkbox" checked>
+                                            <span class="toggle-slider"></span>
+                                            <span class="toggle-label">Push</span>
+                                        </label>
+                                    </div>
+                                </div>
+                                <div class="notification-option">
+                                    <div class="option-info">
+                                        <h4>Order Updates</h4>
+                                        <p>Get notified when an order status changes</p>
+                                    </div>
+                                    <div class="notification-toggles">
+                                        <label class="toggle">
+                                            <input type="checkbox" checked>
+                                            <span class="toggle-slider"></span>
+                                            <span class="toggle-label">Email</span>
+                                        </label>
+                                        <label class="toggle">
+                                            <input type="checkbox" checked>
+                                            <span class="toggle-slider"></span>
+                                            <span class="toggle-label">SMS</span>
+                                        </label>
+                                        <label class="toggle">
+                                            <input type="checkbox" checked>
+                                            <span class="toggle-slider"></span>
+                                            <span class="toggle-label">Push</span>
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="notification-group">
+                                <h3>System Notifications</h3>
+                                <div class="notification-option">
+                                    <div class="option-info">
+                                        <h4>Inventory Alerts</h4>
+                                        <p>Get notified when items are running low</p>
+                                    </div>
+                                    <div class="notification-toggles">
+                                        <label class="toggle">
+                                            <input type="checkbox" checked>
+                                            <span class="toggle-slider"></span>
+                                            <span class="toggle-label">Email</span>
+                                        </label>
+                                        <label class="toggle">
+                                            <input type="checkbox">
+                                            <span class="toggle-slider"></span>
+                                            <span class="toggle-label">SMS</span>
+                                        </label>
+                                        <label class="toggle">
+                                            <input type="checkbox" checked>
+                                            <span class="toggle-slider"></span>
+                                            <span class="toggle-label">Push</span>
+                                        </label>
+                                    </div>
+                                </div>
+                                <div class="notification-option">
+                                    <div class="option-info">
+                                        <h4>Marketing Updates</h4>
+                                        <p>Receive promotional offers and updates</p>
+                                    </div>
+                                    <div class="notification-toggles">
+                                        <label class="toggle">
+                                            <input type="checkbox" checked>
+                                            <span class="toggle-slider"></span>
+                                            <span class="toggle-label">Email</span>
+                                        </label>
+                                        <label class="toggle">
+                                            <input type="checkbox">
+                                            <span class="toggle-slider"></span>
+                                            <span class="toggle-label">SMS</span>
+                                        </label>
+                                        <label class="toggle">
+                                            <input type="checkbox">
+                                            <span class="toggle-slider"></span>
+                                            <span class="toggle-label">Push</span>
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-actions">
+                                <button type="button" class="btn-save">Save Preferences</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Payment Methods Tab -->
+                    <div class="settings-tab" id="payment">
+                        <div class="settings-header">
+                            <h2>Payment Methods</h2>
+                            <p>Manage your payment methods and preferences</p>
+                        </div>
+
+                        <div class="payment-methods">
+                            <div class="payment-method-list">
+                                <div class="payment-method">
+                                    <div class="payment-info">
+                                        <div class="payment-icon">
+                                            <i class="fas fa-credit-card"></i>
+                                        </div>
+                                        <div class="payment-details">
+                                            <h4>Credit Card</h4>
+                                            <p>**** **** **** 4567</p>
+                                            <span class="expiry">Expires: 05/25</span>
+                                        </div>
+                                    </div>
+                                    <div class="payment-actions">
+                                        <button class="btn-edit">Edit</button>
+                                        <button class="btn-delete">Delete</button>
+                                    </div>
+                                </div>
+                                <div class="payment-method">
+                                    <div class="payment-info">
+                                        <div class="payment-icon">
+                                            <i class="fas fa-university"></i>
+                                        </div>
+                                        <div class="payment-details">
+                                            <h4>Bank Account</h4>
+                                            <p>HDFC Bank</p>
+                                            <span class="account">Acc: **** 7890</span>
+                                        </div>
+                                    </div>
+                                    <div class="payment-actions">
+                                        <button class="btn-edit">Edit</button>
+                                        <button class="btn-delete">Delete</button>
+                                    </div>
+                                </div>
+                            </div>
+                            <button class="btn-add-payment">
+                                <i class="fas fa-plus"></i> Add Payment Method
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Security Tab -->
+                    <div class="settings-tab" id="security">
+                        <div class="settings-header">
+                            <h2>Security Settings</h2>
+                            <p>Manage your account security and privacy</p>
+                        </div>
+
+                        <div class="security-settings">
+                            <div class="security-section">
+                                <h3>Change Password</h3>
+                                <form class="settings-form">
+                                    <div class="form-group">
+                                        <label for="currentPassword">Current Password</label>
+                                        <input type="password" id="currentPassword">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="newPassword">New Password</label>
+                                        <input type="password" id="newPassword">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="confirmPassword">Confirm New Password</label>
+                                        <input type="password" id="confirmPassword">
+                                    </div>
+                                    <div class="form-actions">
+                                        <button type="submit" class="btn-save">Update Password</button>
+                                    </div>
+                                </form>
+                            </div>
+                            <div class="security-section">
+                                <h3>Two-Factor Authentication</h3>
+                                <div class="two-factor-status">
+                                    <p>Two-factor authentication adds an extra layer of security to your account.</p>
+                                    <div class="status-toggle">
+                                        <span>Status: <strong>Disabled</strong></span>
+                                        <label class="toggle">
+                                            <input type="checkbox">
+                                            <span class="toggle-slider"></span>
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="security-section">
+                                <h3>Login Sessions</h3>
+                                <div class="sessions-list">
+                                    <div class="session">
+                                        <div class="session-info">
+                                            <div class="device-icon">
+                                                <i class="fas fa-laptop"></i>
+                                            </div>
+                                            <div class="session-details">
+                                                <h4>Windows PC - Chrome</h4>
+                                                <p>New Delhi, India</p>
+                                                <span class="session-time">Current session</span>
+                                            </div>
+                                        </div>
+                                        <div class="session-actions">
+                                            <button class="btn-logout" disabled>This Device</button>
+                                        </div>
+                                    </div>
+                                    <div class="session">
+                                        <div class="session-info">
+                                            <div class="device-icon">
+                                                <i class="fas fa-mobile-alt"></i>
+                                            </div>
+                                            <div class="session-details">
+                                                <h4>iPhone - Safari</h4>
+                                                <p>Mumbai, India</p>
+                                                <span class="session-time">Last active: 2 days ago</span>
+                                            </div>
+                                        </div>
+                                        <div class="session-actions">
+                                            <button class="btn-logout">Logout</button>
+                                        </div>
+                                    </div>
+                                </div>
+                                <button class="btn-logout-all">Logout from all devices</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Appearance Tab -->
+                    <div class="settings-tab" id="appearance">
+                        <div class="settings-header">
+                            <h2>Appearance Settings</h2>
+                            <p>Customize the look and feel of your dashboard</p>
+                        </div>
+
+                        <div class="appearance-settings">
+                            <div class="theme-section">
+                                <h3>Theme</h3>
+                                <div class="theme-options">
+                                    <div class="theme-option active">
+                                        <div class="theme-preview light-theme"></div>
+                                        <span>Light</span>
+                                    </div>
+                                    <div class="theme-option">
+                                        <div class="theme-preview dark-theme"></div>
+                                        <span>Dark</span>
+                                    </div>
+                                    <div class="theme-option">
+                                        <div class="theme-preview system-theme"></div>
+                                        <span>System</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="color-section">
+                                <h3>Accent Color</h3>
+                                <div class="color-options">
+                                    <div class="color-option active" style="--color: #FF4D4D;">
+                                        <div class="color-preview"></div>
+                                    </div>
+                                    <div class="color-option" style="--color: #5352ED;">
+                                        <div class="color-preview"></div>
+                                    </div>
+                                    <div class="color-option" style="--color: #1DD1A1;">
+                                        <div class="color-preview"></div>
+                                    </div>
+                                    <div class="color-option" style="--color: #FFA502;">
+                                        <div class="color-preview"></div>
+                                    </div>
+                                    <div class="color-option" style="--color: #FF6B6B;">
+                                        <div class="color-preview"></div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-actions">
+                                <button type="button" class="btn-save">Save Preferences</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script src="js/dashboard.js"></script>
+    <script src="js/Setting.js"></script>
+</body>
+</html>

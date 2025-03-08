@@ -1,0 +1,294 @@
+/* General Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f4f4f9;
+    color: #333;
+    line-height: 1.6;
+}
+
+/* Header Styling */
+header {
+    background:  var(--secondary-color);
+    padding: 20px 0;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+.header-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 20px;
+}
+
+header h1 {
+    font-size: 2.5rem;
+    font-weight: 600;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+    color: #fff;
+}
+
+/* Navigation Styling */
+nav {
+    position: relative;
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    gap: 20px;
+}
+
+.nav-link {
+    text-decoration: none;
+    color: #fff;
+    font-size: 1.1rem;
+    padding: 10px 15px;
+    border-radius: 5px;
+    transition: all 0.3s ease;
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+.nav-link:hover {
+    background-color: white;
+    color: #333;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+.nav-link.exit {
+    background-color: #ff4757;
+}
+
+.nav-link.exit:hover {
+    background-color: #ff6b81;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 10px rgba(255, 71, 87, 0.3);
+}
+
+/* Menu Toggle Button */
+.menu-toggle {
+    background: none;
+    border: none;
+    color: #fff;
+    font-size: 1.5rem;
+    cursor: pointer;
+    display: none;
+    /* Hide on larger screens */
+}
+
+/* Greeting Message */
+#greetingMessage {
+    font-size: 1.5rem;
+    text-align: center;
+    margin: 20px 0;
+    color: #000000;
+    font-weight: 500;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .header-content {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    nav ul {
+        flex-direction: column;
+        gap: 10px;
+        display: none;
+        /* Hide menu items by default */
+    }
+
+    nav ul.active {
+        display: flex;
+        /* Show menu items when active */
+    }
+
+    .menu-toggle {
+        display: block;
+        /* Show toggle button on mobile */
+        margin-bottom: 10px;
+    }
+
+    .nav-link {
+        width: 100%;
+        text-align: center;
+    }
+}
+
+
+
+
+/* About Section Styling */
+.section {
+    padding: 80px 0;
+    /* Increased padding for a more spacious layout */
+}
+
+.about-section {
+    background-color: rgba(241, 241, 241, 0.95);
+    /* Slightly lighter gray background for contrast */
+    position: relative;
+    overflow: hidden;
+    /* To contain any child elements */
+}
+
+.about-text {
+    padding: 30px;
+    background: rgba(241, 241, 241, 0.95);
+    /* Slightly transparent white background */
+    border-radius: 10px;
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1);
+    /* Enhanced shadow for depth */
+    transition: transform 0.3s;
+    /* Smooth transition for hover effect */
+}
+
+.about-text:hover {
+    transform: translateY(-5px);
+    /* Lift effect on hover */
+}
+
+.about-text h3 {
+    font-size: 2.5rem;
+    color: #333;
+    margin-bottom: 15px;
+    position: relative;
+}
+
+.about-text h3::after {
+    content: '';
+    display: block;
+    width: 60px;
+    /* Slightly wider underline */
+    height: 4px;
+    background: #6a11cb;
+    /* Theme color */
+    margin-top: 10px;
+}
+
+.about-text h6 {
+    font-size: 1.2rem;
+    color: #6a11cb;
+    /* Theme color */
+    margin-bottom: 20px;
+}
+
+.about-text p {
+    font-size: 1rem;
+    color: #555;
+    line-height: 1.8;
+    /* Increased line height for better readability */
+    margin-bottom: 20px;
+}
+
+.about-list {
+    margin-top: 20px;
+}
+
+.about-list .media {
+    display: flex;
+    justify-content: space-between;
+    padding: 15px 0;
+    /* Increased padding for better spacing */
+    border-bottom: 1px solid #ddd;
+}
+
+.about-list label {
+    font-weight: bold;
+    color: #333;
+    margin-right: 15px;
+    /* Maintain distance between label and value */
+}
+
+.about-list p {
+    color: #555;
+}
+
+/* About Avatar Styling */
+.about-avatar {
+    text-align: center;
+    margin-top: 20px;
+    /* Space above the image */
+}
+
+.about-avatar img {
+    max-width: 100%;
+    border-radius: 10px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+}
+
+/* Counter Section Styling */
+.counter {
+    margin-top: 60px;
+    /* Increased margin for better separation */
+}
+
+.count-data {
+    padding: 30px;
+    /* Increased padding for a more spacious feel */
+    background: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s, box-shadow 0.3s;
+    /* Smooth transition for hover effects */
+}
+
+.count-data:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.2);
+    /* Enhanced shadow on hover */
+}
+
+.count {
+    font-size: 2.5rem;
+    color: #6a11cb;
+    /* Theme color */
+    font-weight: bold;
+}
+
+.count-data p {
+    font-size: 1rem;
+    color: #555;
+    margin-top: 10px;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .about-section {
+        padding: 40px 0;
+        /* Reduced padding for smaller screens */
+    }
+
+    .about-text h3 {
+        font-size: 2rem;
+    }
+
+    .about-text h6 {
+        font-size: 1rem;
+    }
+
+    .count {
+        font-size: 2rem;
+    }
+
+    .about-list .media {
+        flex-direction: column;
+        /* Stack items vertically on smaller screens */
+        align-items: flex-start;
+        /* Align items to the start */
+    }
+
+    .about-list .media label {
+        margin-bottom: 5px;
+        /* Space between label and value */
+    }
+}

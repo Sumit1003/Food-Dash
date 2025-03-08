@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Analytics - FoodDash</title>
+    <link rel="icon" href="assets/food-dash.png" />
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/dashboard.css">
+    <link rel="stylesheet" href="css/Analytics.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <div class="dashboard-container">
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <div class="logo">
+                    <div class="logo-icon">FD</div>
+                    <h1>FoodDash</h1>
+                </div>
+                <button class="sidebar-toggle" id="sidebarToggle">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </div>
+            <nav class="sidebar-nav">
+                <ul>
+                    <li>
+                        <a href="dashboard.html">
+                            <i class="fas fa-th-large"></i>
+                            <span>Dashboard</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="Orders.html">
+                            <i class="fas fa-shopping-bag"></i>
+                            <span>Orders</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="Menu.html">
+                            <i class="fas fa-utensils"></i>
+                            <span>Menu</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="Customer.html">
+                            <i class="fas fa-users"></i>
+                            <span>Customers</span>
+                        </a>
+                    </li>
+                    <li class="active">
+                        <a href="Analytics.html">
+                            <i class="fas fa-chart-bar"></i>
+                            <span>Analytics</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="Setting.html">
+                            <i class="fas fa-cog"></i>
+                            <span>Settings</span>
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+            <div class="sidebar-footer">
+                <a href="#" id="logoutBtn">
+                    <i class="fas fa-sign-out-alt"></i>
+                    <span>Logout</span>
+                </a>
+            </div>
+        </aside>
+
+        <main class="main-content">
+            <header class="dashboard-header">
+                <h1>Analytics Overview</h1>
+                <div class="user-menu">
+                    <span class="date" id="currentDate">February 21, 2023</span>
+                    <div class="user-avatar" id="userMenuToggle">
+                        <span>JD</span>
+                    </div>
+                    <div class="user-dropdown" id="userDropdown">
+                        <div class="user-info">
+                            <h4>Sumit Kumar</h4>
+                            <p>user@example.com</p>
+                        </div>
+                        <ul>
+                            <li><a href="profile.html"><i class="fas fa-user"></i> Profile</a></li>
+                            <li><a href="Setting.html"><i class="fas fa-cog"></i> Settings</a></li>
+                            <li><a href="#" id="logoutBtnDropdown"><i class="fas fa-sign-out-alt"></i> Logout</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </header>
+
+            <div class="analytics-filters">
+                <div class="filter-group">
+                    <label for="dateRange">Date Range:</label>
+                    <select id="dateRange" class="filter-select">
+                        <option value="today">Today</option>
+                        <option value="yesterday">Yesterday</option>
+                        <option value="week" selected>Last 7 days</option>
+                        <option value="month">Last 30 days</option>
+                        <option value="custom">Custom Range</option>
+                    </select>
+                </div>
+                <div class="filter-group custom-date-range" id="customDateRange">
+                    <label for="startDate">From:</label>
+                    <input type="date" id="startDate" class="date-input">
+                    <label for="endDate">To:</label>
+                    <input type="date" id="endDate" class="date-input">
+                </div>
+                <button class="btn-apply-filter" id="applyFilter">Apply Filters</button>
+            </div>
+
+            <div class="dashboard-stats">
+                <div class="stat-card">
+                    <div class="stat-info">
+                        <h3>Total Orders</h3>
+                        <div class="stat-value">1,245</div>
+                        <div class="stat-change positive">
+                            <i class="fas fa-arrow-up"></i> 15% vs previous period
+                        </div>
+                    </div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-info">
+                        <h3>Total Revenue</h3>
+                        <div class="stat-value">₹24,560</div>
+                        <div class="stat-change positive">
+                            <i class="fas fa-arrow-up"></i> 12% vs previous period
+                        </div>
+                    </div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-info">
+                        <h3>Average Order Value</h3>
+                        <div class="stat-value">₹19.73</div>
+                        <div class="stat-change negative">
+                            <i class="fas fa-arrow-down"></i> 3% vs previous period
+                        </div>
+                    </div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-info">
+                        <h3>New Customers</h3>
+                        <div class="stat-value">87</div>
+                        <div class="stat-change positive">
+                            <i class="fas fa-arrow-up"></i> 8% vs previous period
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="analytics-charts">
+                <div class="chart-container">
+                    <div class="chart-header">
+                        <h2>Revenue & Orders</h2>
+                        <div class="chart-legend">
+                            <div class="legend-item">
+                                <span class="legend-color revenue-color"></span>
+                                <span>Revenue</span>
+                            </div>
+                            <div class="legend-item">
+                                <span class="legend-color orders-color"></span>
+                                <span>Orders</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="chart-body">
+                        <canvas id="revenueChart"></canvas>
+                    </div>
+                </div>
+
+                <div class="chart-row">
+                    <div class="chart-container half-width">
+                        <div class="chart-header">
+                            <h2>Popular Categories</h2>
+                        </div>
+                        <div class="chart-body">
+                            <canvas id="categoriesChart"></canvas>
+                        </div>
+                    </div>
+                    <div class="chart-container half-width">
+                        <div class="chart-header">
+                            <h2>Order Status</h2>
+                        </div>
+                        <div class="chart-body">
+                            <canvas id="orderStatusChart"></canvas>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <section class="top-items">
+                <div class="section-header">
+                    <h2>Top Selling Items</h2>
+                    <div class="period-selector">
+                        <button class="period-btn active" data-period="week">Week</button>
+                        <button class="period-btn" data-period="month">Month</button>
+                        <button class="period-btn" data-period="year">Year</button>
+                    </div>
+                </div>
+                <div class="items-table-container">
+                    <table class="items-table">
+                        <thead>
+                            <tr>
+                                <th>Item</th>
+                                <th>Category</th>
+                                <th>Orders</th>
+                                <th>Revenue</th>
+                                <th>Trend</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>
+                                    <div class="item-info">
+                                        <div class="item-image">
+                                            <img src="./assets/cls-burger.jpeg" alt="Classic Burger">
+                                        </div>
+                                        <span>Classic Burger</span>
+                                    </div>
+                                </td>
+                                <td>Burgers</td>
+                                <td>245</td>
+                                <td>₹2,205</td>
+                                <td><span class="trend-up"><i class="fas fa-arrow-up"></i> 12%</span></td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <div class="item-info">
+                                        <div class="item-image">
+                                            <img src="./assets/pizza.jpg" alt="Pepperoni Pizza">
+                                        </div>
+                                        <span>Pepperoni Pizza</span>
+                                    </div>
+                                </td>
+                                <td>Pizza</td>
+                                <td>198</td>
+                                <td>₹2,574</td>
+                                <td><span class="trend-up"><i class="fas fa-arrow-up"></i> 8%</span></td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <div class="item-info">
+                                        <div class="item-image">
+                                            <img src="./assets/french_fries.jpeg" alt="Wings">
+                                        </div>
+                                        <span>Wings</span>
+                                    </div>
+                                </td>
+                                <td>Sides</td>
+                                <td>187</td>
+                                <td>₹2,057</td>
+                                <td><span class="trend-down"><i class="fas fa-arrow-down"></i> 3%</span></td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <div class="item-info">
+                                        <div class="item-image">
+                                            <img src="./assets/cls-burger.jpeg" alt="Chicken Sandwich">
+                                        </div>
+                                        <span>Chicken Sandwich</span>
+                                    </div>
+                                </td>
+                                <td>Sandwiches</td>
+                                <td>156</td>
+                                <td>₹1,404</td>
+                                <td><span class="trend-up"><i class="fas fa-arrow-up"></i> 5%</span></td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <div class="item-info">
+                                        <div class="item-image">
+                                            <img src="./assets/french_fries.jpeg" alt="French Fries">
+                                        </div>
+                                        <span>French Fries</span>
+                                    </div>
+                                </td>
+                                <td>Sides</td>
+                                <td>142</td>
+                                <td>₹1,136</td>
+                                <td><span class="trend-up"><i class="fas fa-arrow-up"></i> 2%</span></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+
+            <section class="customer-insights">
+                <div class="section-header">
+                    <h2>Customer Insights</h2>
+                </div>
+                <div class="insights-grid">
+                    <div class="insight-card">
+                        <div class="insight-icon">
+                            <i class="fas fa-users"></i>
+                        </div>
+                        <div class="insight-info">
+                            <h3>Customer Retention</h3>
+                            <div class="insight-value">76%</div>
+                            <div class="insight-desc">Returning customers in the last 30 days</div>
+                        </div>
+                    </div>
+                    <div class="insight-card">
+                        <div class="insight-icon">
+                            <i class="fas fa-clock"></i>
+                        </div>
+                        <div class="insight-info">
+                            <h3>Average Order Time</h3>
+                            <div class="insight-value">24 min</div>
+                            <div class="insight-desc">From order placement to delivery</div>
+                        </div>
+                    </div>
+                    <div class="insight-card">
+                        <div class="insight-icon">
+                            <i class="fas fa-star"></i>
+                        </div>
+                        <div class="insight-info">
+                            <h3>Average Rating</h3>
+                            <div class="insight-value">4.7/5</div>
+                            <div class="insight-desc">Based on 856 reviews</div>
+                        </div>
+                    </div>
+                    <div class="insight-card">
+                        <div class="insight-icon">
+                            <i class="fas fa-shopping-cart"></i>
+                        </div>
+                        <div class="insight-info">
+                            <h3>Cart Abandonment</h3>
+                            <div class="insight-value">23%</div>
+                            <div class="insight-desc">Carts abandoned before checkout</div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <script src="js/dashboard.js"></script>
+    <script src="js/Analytics.js"></script>
+</body>
+</html>

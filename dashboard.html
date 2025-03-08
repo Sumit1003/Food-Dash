@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="./assets/food-dash.jpg">
+    <title>Dashboard - FoodDash</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/dashboard.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <div class="dashboard-container">
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <div class="logo">
+                    <div class="logo-icon">FD</div>
+                    <h1>FoodDash</h1>
+                </div>
+                <button class="sidebar-toggle" id="sidebarToggle">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </div>
+            <nav class="sidebar-nav">
+                <ul>
+                    <li class="active">
+                        <a href="dashboard.html">
+                            <i class="fas fa-th-large"></i>
+                            <span>Dashboard</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="Orders.html">
+                            <i class="fas fa-shopping-bag"></i>
+                            <span>Orders</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="Menu.html">
+                            <i class="fas fa-utensils"></i>
+                            <span>Menu</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="customers.html">
+                            <i class="fas fa-users"></i>
+                            <span>Customers</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="Analytics.html">
+                            <i class="fas fa-chart-bar"></i>
+                            <span>Analytics</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="Setting.html">
+                            <i class="fas fa-cog"></i>
+                            <span>Settings</span>
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+            <div class="sidebar-footer">
+                <a href="#" id="logoutBtn">
+                    <i class="fas fa-sign-out-alt"></i>
+                    <span>Logout</span>
+                </a>
+            </div>
+        </aside>
+
+        <main class="main-content">
+            <header class="dashboard-header">
+                <h1>Dashboard</h1>
+                <div class="user-menu">
+                    <span class="date" id="currentDate">February 21, 2023</span>
+                    <div class="user-avatar" id="userMenuToggle">
+                        <span>JD</span>
+                    </div>
+                    <div class="user-dropdown" id="userDropdown">
+                        <div class="user-info">
+                            <h4>Sumit Kumar</h4>
+                            <p>Sumit123@gmail.com</p>
+                        </div>
+                        <ul>
+                            <li><a href="profile.html"><i class="fas fa-user"></i> Profile</a></li>
+                            <li><a href="Setting.html"><i class="fas fa-cog"></i> Settings</a></li>
+                            <li><a href="#" id="logoutBtnDropdown"><i class="fas fa-sign-out-alt"></i> Logout</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </header>
+
+            <div class="dashboard-stats">
+                <div class="stat-card">
+                    <div class="stat-info">
+                        <h3>Today's Orders</h3>
+                        <div class="stat-value">156</div>
+                        <div class="stat-change positive">
+                            <i class="fas fa-arrow-up"></i> 12% vs yesterday
+                        </div>
+                    </div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-info">
+                        <h3>Total Revenue</h3>
+                        <div class="stat-value">₹3,240</div>
+                        <div class="stat-change positive">
+                            <i class="fas fa-arrow-up"></i> 8% vs yesterday
+                        </div>
+                    </div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-info">
+                        <h3>Average Order Value</h3>
+                        <div class="stat-value">₹20.76</div>
+                        <div class="stat-change negative">
+                            <i class="fas fa-arrow-down"></i> 2% vs yesterday
+                        </div>
+                    </div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-info">
+                        <h3>Active Orders</h3>
+                        <div class="stat-value">12</div>
+                        <div class="stat-change neutral">
+                            <i class="fas fa-minus"></i> 4 orders than usual
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <section class="recent-orders">
+                <div class="section-header">
+                    <h2>Recent Orders</h2>
+                    <a href="orders.html" class="view-all">View All Orders</a>
+                </div>
+                <div class="orders-list">
+                    <div class="order-item">
+                        <div class="order-info">
+                            <h3>Order 1</h3>
+                            <p>2x Burger, 1x Fries, 1x Coke</p>
+                        </div>
+                        <div class="order-status pending">
+                            <span>Pending</span>
+                        </div>
+                    </div>
+                    <div class="order-item">
+                        <div class="order-info">
+                            <h3>Order 2</h3>
+                            <p>1x Pizza, 2x Wings, 2x Sprite</p>
+                        </div>
+                        <div class="order-status preparing">
+                            <span>Preparing</span>
+                        </div>
+                    </div>
+                    <div class="order-item">
+                        <div class="order-info">
+                            <h3>Order 3</h3>
+                            <p>3x Tacos, 1x Nachos, 1x Pepsi</p>
+                        </div>
+                        <div class="order-status completed">
+                            <span>Completed</span>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="popular-items">
+                <div class="section-header">
+                    <h2>Popular Items</h2>
+                    <a href="menu.html" class="view-all">View Full Menu</a>
+                </div>
+                <div class="items-grid">
+                    <div class="food-item">
+                        <div class="food-image">
+                            <img src="./assets/burger.jpeg" alt="Classic Burger">
+                        </div>
+                        <div class="food-details">
+                            <h3>Classic Burger</h3>
+                            <p>Classic burger with fresh lettuce, tomatoes, and our special sauce</p>
+                            <div class="food-meta">
+                                <span class="price">₹8.99</span>
+                                <span class="rating"><i class="fas fa-star"></i> 4.8 (170)</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="food-item">
+                        <div class="food-image">
+                            <img src="./assets/pizza.jpg" alt="Pepperoni Pizza">
+                        </div>
+                        <div class="food-details">
+                            <h3>Pepperoni Pizza</h3>
+                            <p>Classic pizza with extra cheese and premium pepperoni slices</p>
+                            <div class="food-meta">
+                                <span class="price">₹12.99</span>
+                                <span class="rating"><i class="fas fa-star"></i> 4.9 (246)</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="food-item">
+                        <div class="food-image">
+                            <img src="./assets/french_fries.jpeg" alt="Wings">
+                        </div>
+                        <div class="food-details">
+                            <h3>Wings</h3>
+                            <p>Crispy french-fries tossed in spicy sauce with blue cheese dip</p>
+                            <div class="food-meta">
+                                <span class="price">₹10.99</span>
+                                <span class="rating"><i class="fas fa-star"></i> 4.7 (196)</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <script src="js/dashboard.js"></script>
+</body>
+</html>
+
