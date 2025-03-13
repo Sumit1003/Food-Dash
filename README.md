@@ -15,10 +15,10 @@ FoodDash is a **responsive** and **dynamic** admin dashboard built using **HTML,
 📁 FoodDash
 ├── 📁 assets/ (Images, Icons, etc.)
 ├── 📄 index.html (Main Dashboard)
-├── 📄 analytics.html (Analytics Page)
+├── 📄 Analytics.html (Analytics Page)
 ├── 📄 settings.html (Settings Page)
 ├── 📜 dashboard.css (Global Dashboard Styles)
-├── 📜 analytics.css (Analytics Styles)
+├── 📜 Analytics.css (Analytics Styles)
 ├── 📜 settings.css (Settings Styles)
 ├── 📜 analytics.js (Analytics Logic)
 ├── 📜 settings.js (Settings Logic)
